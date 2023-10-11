@@ -8,9 +8,9 @@ const LS_KEY = "videoplayer-current-time";
 
 const getCurrentTime = function(data) {
    const currentTime = data.seconds;
-   localStorage.setItem(LS_KEY, JSON.stringify(currentTime));
+   localStorage.setItem(LS_KEY, currentTime);
 };
 
 player.on('timeupdate', throttle(getCurrentTime, 1000));
 
-player.setCurrentTime(JSON.parse(localStorage.getItem(LS_KEY)) || 0);
+player.setCurrentTime(localStorage.getItem(LS_KEY) || 0);
